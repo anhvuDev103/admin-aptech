@@ -45,7 +45,6 @@ const BookingManager = () => {
 
   return (
     <div className="xac_minh_danh_tinh">
-      <Button className="btn_css">Chấp nhận</Button>
       {data.map((d) => (
         <CarRowRent
           car={d}

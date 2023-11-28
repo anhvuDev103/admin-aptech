@@ -12,20 +12,6 @@ import Button from './Button';
 const CarRowRent = ({ car, accept, reject }) => {
   const carImage = car?.image?.split('-')[0];
 
-  const cancel = async () => {
-    try {
-      const { data } = await http.put('/change_status_booking', {
-        booking_id: car?.booking_id,
-        boocking_status_id: 6,
-      });
-      if (data.status === 1) {
-        toast('Success!');
-      }
-    } catch (error) {
-      toast('Không thành công, thử lại sau!');
-    }
-  };
-
   return (
     <div className="CarRow">
       <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
