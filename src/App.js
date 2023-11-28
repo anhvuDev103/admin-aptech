@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import AuthManager from './pages/AuthManager';
@@ -37,6 +39,7 @@ function App() {
       ) : (
         <Login />
       )}
+      <ToastContainer />
     </>
   );
 }

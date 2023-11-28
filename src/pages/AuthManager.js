@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import http from '../utils/http';
+import { toast } from 'react-toastify';
 
 const AuthManager = () => {
   const [data, setData] = useState([]);
@@ -10,6 +11,33 @@ const AuthManager = () => {
       setData(data);
     })();
   });
+
+  const accept = async (customer_id) => {
+    const { data } = await http.put('/api/valid_verify_customer', {
+      customer_id,
+    });
+
+    if (data.status === 1) {
+      toast('Accepted user!');
+      return;
+    }
+
+    toast('Failed!');
+  };
+
+  const reject = async (customer_id) => {
+    const { data } = await http.put('/api/invalid_verify_customer', {
+      customer_id,
+    });
+
+    if (data.status === 1) {
+      toast('Rejected user!');
+      return;
+    }
+
+    toast('Failed!');
+  };
+
   return (
     <div className="xac_minh_danh_tinh">
       <table className="table table-striped">
@@ -37,6 +65,7 @@ const AuthManager = () => {
                   className="btn btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
+                  onClick={() => accept(d.customer_id)}
                 >
                   Chấp Nhận
                 </button>
@@ -46,10 +75,11 @@ const AuthManager = () => {
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
                   style={{ backgroundColor: 'red', borderColor: 'red' }}
+                  onClick={() => reject(d.customer_id)}
                 >
                   Từ Chối
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
@@ -57,44 +87,10 @@ const AuthManager = () => {
                   style={{ backgroundColor: 'red', borderColor: 'red' }}
                 >
                   xem chi tiết
-                </button>
+                </button> */}
               </td>
             </tr>
           ))}
-          {/* <tr>
-            <th scope="row">2</th>
-            <td>001203023055</td>
-            <td>Nguyễn Trung Đức</td>
-            <td>14/05/2003</td>
-            <td style={{ textAlign: 'center' }}>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Chấp Nhận
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                style={{ backgroundColor: 'red', borderColor: 'red' }}
-              >
-                Từ Chối
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                style={{ backgroundColor: 'red', borderColor: 'red' }}
-              >
-                xem chi tiết
-              </button>
-            </td>
-          </tr> */}
         </tbody>
       </table>
     </div>
