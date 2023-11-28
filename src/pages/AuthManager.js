@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import http from '../utils/http';
 
 const AuthManager = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await http.get('/api/get_customer_verify');
+      setData(data);
+    })();
+  });
   return (
     <div className="xac_minh_danh_tinh">
       <table className="table table-striped">

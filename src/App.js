@@ -5,28 +5,39 @@ import AuthManager from './pages/AuthManager';
 import RegisterCarManager from './pages/RegisterCarManager';
 import BookingManager from './pages/BookingManager';
 import UserManager from './pages/UserManager';
+import Login from './pages/Login';
 
 function App() {
+  const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   return (
-    <div className="row">
-      <Header />
-      <Sidebar />
-      <div class="col-2"></div>
-      <div className="col-10">
-        <Routes>
-          <Route path="quan-ly-xac-minh" element={<AuthManager />} />
-        </Routes>
-        <Routes>
-          <Route path="quan-ly-dang-ky-xe" element={<RegisterCarManager />} />
-        </Routes>
-        <Routes>
-          <Route path="quan-ly-booking" element={<BookingManager />} />
-        </Routes>
-        <Routes>
-          <Route path="quan-ly-nguoi-dung" element={<UserManager />} />
-        </Routes>
-      </div>
-    </div>
+    <>
+      {!isLogin ? (
+        <div className="row">
+          <Header />
+          <Sidebar />
+          <div class="col-2"></div>
+          <div className="col-10">
+            <Routes>
+              <Route path="quan-ly-xac-minh" element={<AuthManager />} />
+            </Routes>
+            <Routes>
+              <Route
+                path="quan-ly-dang-ky-xe"
+                element={<RegisterCarManager />}
+              />
+            </Routes>
+            <Routes>
+              <Route path="quan-ly-booking" element={<BookingManager />} />
+            </Routes>
+            <Routes>
+              <Route path="quan-ly-nguoi-dung" element={<UserManager />} />
+            </Routes>
+          </div>
+        </div>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 }
 
