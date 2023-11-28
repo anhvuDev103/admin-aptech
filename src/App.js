@@ -11,6 +11,8 @@ import BookingManager from './pages/BookingManager';
 import UserManager from './pages/UserManager';
 import Login from './pages/Login';
 
+window.reload = window.location.reload;
+
 function App() {
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   return (

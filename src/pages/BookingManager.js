@@ -21,12 +21,7 @@ const BookingManager = () => {
       boocking_status_id: 2,
     });
 
-    if (data.status === 1) {
-      toast('Accepted booking!');
-      return;
-    }
-
-    toast('Failed!');
+    window.reload();
   };
 
   const reject = async (booking_id) => {
@@ -35,12 +30,7 @@ const BookingManager = () => {
       boocking_status_id: 5,
     });
 
-    if (data.status === 1) {
-      toast('Rejected booking!');
-      return;
-    }
-
-    toast('Failed!');
+    window.reload();
   };
 
   return (

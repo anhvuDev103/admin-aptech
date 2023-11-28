@@ -17,12 +17,7 @@ const AuthManager = () => {
       customer_id,
     });
 
-    if (data.status === 1) {
-      toast('Accepted user!');
-      return;
-    }
-
-    toast('Failed!');
+    window.reload();
   };
 
   const reject = async (customer_id) => {
@@ -30,12 +25,7 @@ const AuthManager = () => {
       customer_id,
     });
 
-    if (data.status === 1) {
-      toast('Rejected user!');
-      return;
-    }
-
-    toast('Failed!');
+    window.reload();
   };
 
   return (
