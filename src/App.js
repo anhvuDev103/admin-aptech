@@ -33,9 +33,9 @@ function App() {
             <Routes>
               <Route path="quan-ly-booking" element={<BookingManager />} />
             </Routes>
-            <Routes>
+            {/* <Routes>
               <Route path="quan-ly-nguoi-dung" element={<UserManager />} />
-            </Routes>
+            </Routes> */}
           </div>
         </div>
       ) : (
