@@ -24,11 +24,11 @@ const Sidebar = () => {
             <i class="fa-brands fa-product-hunt me-3"></i>Quản Lý Booking
           </li>
         </NavLink>
-        <NavLink to={'/quan-ly-nguoi-dung'} href="" class="nav_link">
+        {/* <NavLink to={'/quan-ly-nguoi-dung'} href="" class="nav_link">
           <li class="sidebar_icon side_item3">
             <i class="fa-solid fa-user me-3"></i>Quản Lý người dùng
           </li>
-        </NavLink>
+        </NavLink> */}
         <a href="" class="nav_link">
           <li class="sidebar_icon side_item3">
             <i class="fa-solid fa-wrench me-3"></i>Đăng xuất
