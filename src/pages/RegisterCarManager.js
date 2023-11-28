@@ -12,19 +12,19 @@ const RegisterCarManager = () => {
     })();
   }, []);
 
-  const accept = async (car_d) => {
+  const accept = async (car_id) => {
     await http.put('/change_status_car', {
-      car_d,
-      boocking_status_id: 3,
+      car_id,
+      car_status_id: 3,
     });
 
     window.location.reload();
   };
 
-  const reject = async (car_d) => {
+  const reject = async (car_id) => {
     await http.put('/change_status_car', {
-      car_d,
-      boocking_status_id: 2,
+      car_id,
+      car_status_id: 2,
     });
 
     window.location.reload();

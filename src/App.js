@@ -8,14 +8,13 @@ import Header from './components/Header';
 import AuthManager from './pages/AuthManager';
 import RegisterCarManager from './pages/RegisterCarManager';
 import BookingManager from './pages/BookingManager';
-import UserManager from './pages/UserManager';
 import Login from './pages/Login';
 
 function App() {
-  const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
+  const isLogin = !!JSON.parse(localStorage.getItem('ADMIN_ID'));
   return (
     <>
-      {!isLogin ? (
+      {isLogin ? (
         <div className="row">
           <Header />
           <Sidebar />
