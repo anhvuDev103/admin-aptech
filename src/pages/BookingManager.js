@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 import http from '../utils/http';
 import CarRowRent from '../components/CarRowRent';
+import Button from '../components/Button';
 
 const BookingManager = () => {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ const BookingManager = () => {
       const { data } = await http.get('/get_booking_verify');
       setData(data);
     })();
-  });
+  }, []);
 
   const accept = async (booking_id) => {
     const { data } = await http.put('/change_status_booking', {
@@ -44,8 +45,14 @@ const BookingManager = () => {
 
   return (
     <div className="xac_minh_danh_tinh">
+      <Button className="btn_css">Chấp nhận</Button>
       {data.map((d) => (
-        <CarRowRent car={d} key={d.booking_id} />
+        <CarRowRent
+          car={d}
+          key={d.booking_id}
+          accept={accept}
+          reject={reject}
+        />
       ))}
     </div>
   );

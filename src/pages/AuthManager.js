@@ -10,7 +10,7 @@ const AuthManager = () => {
       const { data } = await http.get('/get_customer_verify');
       setData(data);
     })();
-  });
+  }, []);
 
   const accept = async (customer_id) => {
     const { data } = await http.put('/valid_verify_customer', {

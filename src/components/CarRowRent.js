@@ -9,7 +9,7 @@ import { RENTAL_TAB_OPTIONS } from '../constants/labels';
 import { AddressIcon } from './Svg';
 import Button from './Button';
 
-const CarRowRent = ({ car }) => {
+const CarRowRent = ({ car, accept, reject }) => {
   const carImage = car?.image?.split('-')[0];
 
   const cancel = async () => {
@@ -61,19 +61,20 @@ const CarRowRent = ({ car }) => {
         </div>
       </div>
       <div className="info">
-        {car?.boocking_status_id === 1 && (
-          <div
-            className="actions"
-            style={{
-              marginTop: 12,
-            }}
-          >
-            <div className="info grap_sen"></div>
-            <Button className="btn_css" onClick={cancel}>
-              Hủy thuê
-            </Button>
-          </div>
-        )}
+        <div
+          className="actions"
+          style={{
+            marginTop: 12,
+          }}
+        >
+          <div className="info grap_sen"></div>
+          <Button className="btn_css" onClick={() => accept(car.booking_id)}>
+            Chấp nhận
+          </Button>
+          <Button className="btn_css" onClick={() => reject(car.booking_id)}>
+            Từ Chối
+          </Button>
+        </div>
       </div>
     </div>
   );
