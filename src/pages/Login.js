@@ -25,6 +25,7 @@ const Login = () => {
 
       if (data.status === 1) {
         localStorage.setItem('ADMIN_ID', JSON.stringify(data.customer_id));
+        window.location.reload();
       }
     } catch (error) {}
   };

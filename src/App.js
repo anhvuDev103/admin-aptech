@@ -13,7 +13,7 @@ import Login from './pages/Login';
 function App() {
   const isLogin = !!JSON.parse(localStorage.getItem('ADMIN_ID'));
   return (
-    <>
+    <div className={isLogin ? '' : 'login'}>
       {isLogin ? (
         <div className="row">
           <Header />
@@ -41,7 +41,7 @@ function App() {
         <Login />
       )}
       <ToastContainer />
-    </>
+    </div>
   );
 }
 

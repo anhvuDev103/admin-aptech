@@ -121,21 +121,21 @@ li {
   border-top: transparent;
 }
 
-.grap {
+.login .grap {
   margin: auto;
   width: 400px;
   /* height: 250px; */
 }
-.grap_input {
+.login .grap_input {
   /* height: 200px; */
   background-color: #f0f0f0;
   /* height: auto; */
 }
-form {
+.login form {
   margin: auto;
 }
 
-.title {
+.login .title {
   color: white;
   height: 50px;
   background-color: #3398cc;
@@ -145,24 +145,24 @@ form {
   line-height: 50px;
 }
 .input_email,
-.input_pass {
+.login .input_pass {
   height: 50px;
   width: 350px;
   font-size: 15px;
   margin-top: 20px;
 }
-.grap_pass {
+.login .grap_pass {
   text-align: center;
 }
-.grap_email {
+.login .grap_email {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.grap_button {
+.login .grap_button {
   text-align: center;
 }
-.button_model {
+.login .button_model {
   height: 50px;
   width: 350px;
   font-size: 15px;
@@ -174,24 +174,25 @@ form {
   color: white;
   cursor: pointer;
 }
-body {
+.login body {
   background-color: #556676;
   display: flex;
   height: 600px;
 }
-.message {
+.login .message {
   width: 100%;
   padding: 10px 0px 0px 20px;
   color: red;
 }
-.grap_input {
+.login .grap_input {
   padding: 20px 0px;
 }
 
-#form_selector {
+.login #form_selector {
   position: fixed;
   inset: 0;
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #556676;
 }

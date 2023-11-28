@@ -29,7 +29,11 @@ const Sidebar = () => {
             <i class="fa-solid fa-user me-3"></i>Quản Lý người dùng
           </li>
         </NavLink> */}
-        <a href="" class="nav_link">
+        <a
+          href=""
+          class="nav_link"
+          onClick={() => localStorage.removeItem('ADMIN_ID')}
+        >
           <li class="sidebar_icon side_item3">
             <i class="fa-solid fa-wrench me-3"></i>Đăng xuất
           </li>
