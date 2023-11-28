@@ -25,41 +25,43 @@ const AuthManager = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>001203023055</td>
-            <td>Nguyễn Trung Đức</td>
-            <td>14/05/2003</td>
-            <td style={{ textAlign: 'center' }}>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Chấp Nhận
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                style={{ backgroundColor: 'red', borderColor: 'red' }}
-              >
-                Từ Chối
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                style={{ backgroundColor: 'red', borderColor: 'red' }}
-              >
-                xem chi tiết
-              </button>
-            </td>
-          </tr>
-          <tr>
+          {data.map((d, i) => (
+            <tr key={d.customer_id}>
+              <th scope="row">{i + 1}</th>
+              <td>{d.id_number}</td>
+              <td>{d.name_display}</td>
+              <td>{d.birthday}</td>
+              <td style={{ textAlign: 'center' }}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Chấp Nhận
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  style={{ backgroundColor: 'red', borderColor: 'red' }}
+                >
+                  Từ Chối
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  style={{ backgroundColor: 'red', borderColor: 'red' }}
+                >
+                  xem chi tiết
+                </button>
+              </td>
+            </tr>
+          ))}
+          {/* <tr>
             <th scope="row">2</th>
             <td>001203023055</td>
             <td>Nguyễn Trung Đức</td>
@@ -92,7 +94,7 @@ const AuthManager = () => {
                 xem chi tiết
               </button>
             </td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
