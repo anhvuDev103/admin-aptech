@@ -21,7 +21,7 @@ const BookingManager = () => {
       boocking_status_id: 2,
     });
 
-    window.reload();
+    window.location.reload();
   };
 
   const reject = async (booking_id) => {
@@ -30,7 +30,7 @@ const BookingManager = () => {
       boocking_status_id: 5,
     });
 
-    window.reload();
+    window.location.reload();
   };
 
   return (

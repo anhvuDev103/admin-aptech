@@ -17,7 +17,7 @@ const AuthManager = () => {
       customer_id,
     });
 
-    window.reload();
+    window.location.reload();
   };
 
   const reject = async (customer_id) => {
@@ -25,7 +25,7 @@ const AuthManager = () => {
       customer_id,
     });
 
-    window.reload();
+    window.location.reload();
   };
 
   return (
