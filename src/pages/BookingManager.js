@@ -9,7 +9,7 @@ const BookingManager = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await http.get('/api/get_booking_verify');
+      const { data } = await http.get('/get_booking_verify');
       setData(data);
     })();
   });

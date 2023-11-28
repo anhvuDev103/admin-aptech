@@ -7,13 +7,13 @@ const AuthManager = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await http.get('/api/get_customer_verify');
+      const { data } = await http.get('/get_customer_verify');
       setData(data);
     })();
   });
 
   const accept = async (customer_id) => {
-    const { data } = await http.put('/api/valid_verify_customer', {
+    const { data } = await http.put('/valid_verify_customer', {
       customer_id,
     });
 
@@ -26,7 +26,7 @@ const AuthManager = () => {
   };
 
   const reject = async (customer_id) => {
-    const { data } = await http.put('/api/invalid_verify_customer', {
+    const { data } = await http.put('/invalid_verify_customer', {
       customer_id,
     });
 
