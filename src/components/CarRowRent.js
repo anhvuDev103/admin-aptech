@@ -8,16 +8,37 @@ import { convertPrice } from '../utils/common';
 import { RENTAL_TAB_OPTIONS } from '../constants/labels';
 import { AddressIcon } from './Svg';
 import Button from './Button';
+import no_car from '../../src/assets/imgs/no_car.png';
 
 const CarRowRent = ({ car, accept, reject }) => {
   const carImage = car?.image?.split('-')[0];
 
   return (
+    <>
+    
+    {CarRowRent.length === 0 && (
+      <div>
+        <img
+          style={{
+            margin: '64px auto 0',
+            display: 'block',
+          }}
+          width={220}
+          src={no_car}
+          alt="no_car"
+        />
+        <div className="text-center fw-bold">Không có bản ghi phù hợp</div>
+      </div>
+    )}
+  {CarRowRent.length > 0 && (
+    
     <div className="CarRow">
+      <Img className="car-img" src={no_car} alt="car" />
+
       <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
 
       <div className="info grap_info">
-        <div className="name mt-2">{car?.model_name}</div>
+        <div className="name ">{car?.model_name}</div>
         <div className="car-info">
           <div className="block-info smallTxt car_pro_name_rate">
             Ngày bắt đầu:
@@ -37,6 +58,7 @@ const CarRowRent = ({ car, accept, reject }) => {
               {convertPrice(+car?.total)}
             </span>
           </div>
+          <div className="status mt-1">Tạo bởi: {car?.name} - Số điện thoại {car?.phone}</div>
           <div className="status status2 mt-2">
             Trạng thái: {RENTAL_TAB_OPTIONS[car?.boocking_status_id]}
           </div>
@@ -63,6 +85,8 @@ const CarRowRent = ({ car, accept, reject }) => {
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 };
 

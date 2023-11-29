@@ -24,7 +24,7 @@ const Header = () => {
         Quản lý hệ thống Mioto
       </div>
       <div class="header_content col-2">
-        xin chao <span>{data?.display_name || 'admin'}</span>
+        xin chao <span>{data?.name_display || 'admin'}</span>
       </div>
     </div>
   );

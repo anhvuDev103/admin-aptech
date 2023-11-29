@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import http from '../utils/http';
 import { toast } from 'react-toastify';
+import { IMAGES_URL,IMAGES_VERIFY_CS  } from '../constants/urls';
+import Img from '../components/Img';
+import '../components/styles/Sidebar.scss';
 
 const AuthManager = () => {
   const [data, setData] = useState([]);
@@ -37,6 +40,8 @@ const AuthManager = () => {
             <th scope="col">Số CCCD</th>
             <th scope="col">Họ Và Tên</th>
             <th scope="col">Ngày Sinh</th>
+            <th scope="col">Ảnh mặt trước</th>
+            <th scope="col">Ảnh mặt sau</th>
             <th scope="col" style={{ textAlign: 'center' }}>
               Thao tác
             </th>
@@ -47,37 +52,29 @@ const AuthManager = () => {
             <tr key={d.customer_id}>
               <th scope="row">{i + 1}</th>
               <td>{d.id_number}</td>
-              <td>{d.name_display}</td>
+              <td>{d.full_name}</td>
               <td>{d.birthday}</td>
+              <td>
+                <Img className="car-img" width="150px" src={`${IMAGES_VERIFY_CS}/${d.id_frontside}`} alt="Lỗi ảnh" />
+                </td>
+              <td>
+                <Img className="car-img"  width="150px"  src={`${IMAGES_VERIFY_CS}/${d.id_backside}`} alt="Lỗi ảnh" />
+                </td>
               <td style={{ textAlign: 'center' }}>
                 <button
                   type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  className="button-24 button-24_cl"
                   onClick={() => accept(d.customer_id)}
                 >
                   Chấp Nhận
                 </button>
                 <button
                   type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  style={{ backgroundColor: 'red', borderColor: 'red' }}
+                  className="button-24 ms-3"
                   onClick={() => reject(d.customer_id)}
                 >
                   Từ Chối
                 </button>
-                {/* <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  style={{ backgroundColor: 'red', borderColor: 'red' }}
-                >
-                  xem chi tiết
-                </button> */}
               </td>
             </tr>
           ))}
