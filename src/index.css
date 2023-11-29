@@ -49,6 +49,12 @@
   padding-left: 0;
 }
 
+.nav_sidebar .active {
+  background-color: #ffb751;
+  color: white;
+  font-weight: 700;
+}
+
 .header_content {
   color: white;
   margin-left: auto;
@@ -73,12 +79,12 @@ li {
   text-decoration: none;
   color: black;
 }
-.chang_color_admin {
+/* .chang_color_admin {
   background-color: #ffb751;
   color: white;
   font-weight: 700;
   border: transparent;
-}
+} */
 .chang_color_admin .sidebar_icon {
   border: transparent;
 }
@@ -89,7 +95,7 @@ li {
   color: black;
   background-color: #fff;
   font-weight: 700;
-  border-right: 3px solid rgb(108, 149, 255);
+  /* border-right: 3px solid rgb(108, 149, 255); */
 }
 .nav_sidebar i {
   font-size: 1.2rem;

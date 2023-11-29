@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import http from '../utils/http';
 import { toast } from 'react-toastify';
-import { IMAGES_URL,IMAGES_VERIFY_CS  } from '../constants/urls';
+import { IMAGES_URL, IMAGES_VERIFY_CS } from '../constants/urls';
 import Img from '../components/Img';
-import '../components/styles/Sidebar.scss';
+// import '../components/styles/Sidebar.scss';
 
 const AuthManager = () => {
   const [data, setData] = useState([]);
@@ -55,11 +55,21 @@ const AuthManager = () => {
               <td>{d.full_name}</td>
               <td>{d.birthday}</td>
               <td>
-                <Img className="car-img" width="150px" src={`${IMAGES_VERIFY_CS}/${d.id_frontside}`} alt="Lỗi ảnh" />
-                </td>
+                <Img
+                  className="car-img"
+                  width="150px"
+                  src={`${IMAGES_VERIFY_CS}/${d.id_frontside}`}
+                  alt="Lỗi ảnh"
+                />
+              </td>
               <td>
-                <Img className="car-img"  width="150px"  src={`${IMAGES_VERIFY_CS}/${d.id_backside}`} alt="Lỗi ảnh" />
-                </td>
+                <Img
+                  className="car-img"
+                  width="150px"
+                  src={`${IMAGES_VERIFY_CS}/${d.id_backside}`}
+                  alt="Lỗi ảnh"
+                />
+              </td>
               <td style={{ textAlign: 'center' }}>
                 <button
                   type="button"
