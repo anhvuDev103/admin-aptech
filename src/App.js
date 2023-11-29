@@ -14,7 +14,7 @@ function App() {
   const isLogin = !!JSON.parse(localStorage.getItem('ADMIN_ID'));
   return (
     <div className={isLogin ? '' : 'login'}>
-      {!isLogin ? (
+      {isLogin ? (
         <div className="row">
           <Header />
           <Sidebar />

@@ -4,6 +4,9 @@ import { toast } from 'react-toastify';
 import http from '../utils/http';
 import CarRowRent from '../components/CarRowRent';
 import Button from '../components/Button';
+import Img from '../components/Img';
+
+import no_car from '../../src/assets/imgs/no_car.png';
 
 const BookingManager = () => {
   const [data, setData] = useState([]);
@@ -35,14 +38,18 @@ const BookingManager = () => {
 
   return (
     <div className="xac_minh_danh_tinh">
-      {data.map((d) => (
-        <CarRowRent
-          car={d}
-          key={d.booking_id}
-          accept={accept}
-          reject={reject}
-        />
-      ))}
+      {data.length > 0 ? (
+        data.map((d) => (
+          <CarRowRent
+            car={d}
+            key={d.booking_id}
+            accept={accept}
+            reject={reject}
+          />
+        ))
+      ) : (
+        <Img className="car-img" src={no_car} alt="car" />
+      )}
     </div>
   );
 };
