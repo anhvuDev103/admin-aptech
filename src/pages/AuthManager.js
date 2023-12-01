@@ -94,7 +94,14 @@ const AuthManager = () => {
           </tbody>
         </table>
       ) : (
-        <Img className="car-img" src={no_car} alt="car" />
+        <>
+          <div className='d-flex justify-content-center mt-3'>
+            <Img className="car-img" width="300px" src={no_car} alt="car" />
+          </div>
+          <div className='d-flex justify-content-center'>
+            <div>Không có bản ghi phù hợp</div>
+          </div>
+        </>
       )}
     </div>
   );
